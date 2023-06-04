@@ -6,10 +6,12 @@ import (
 	"crypto/tls"
 	"fmt"
 	"github.com/golang-jwt/jwt/v4"
+	"github.com/google/uuid"
 	"github.com/jordan-wright/email"
 	"math/rand"
 	"net/smtp"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -81,4 +83,10 @@ func GetCode() string {
 		res += strconv.Itoa(rand.Intn(10))
 	}
 	return res
+}
+
+// GetUUID
+// 生成唯一码
+func GetUUID() string {
+	return strings.Replace(uuid.New().String(), "-", "", -1)
 }

@@ -1,0 +1,21 @@
+#配置
+server:
+  host: 127.0.0.1 #监听主机
+  port: 8080 #端口
+
+#Mongo数据库配置
+Mongo:
+  host: 159.75.140.60 # IP
+  port: 27017 # 端口
+  username: admin # 用户名
+  password: mtjllb521 #密码
+  dbName: im #库名
+
+#redis配置
+redis:
+  addr: 159.75.140.60 #ip
+  port: 6379 #端口
+  password: mtjllb #密码没有可以不填
+  DB: 0 #redis数据库index
+  poolSize: 30 #连接池最大socket连接数
+  minIdleConn: 30 #在启动阶段创建指定数量的Idle连接，并长期维持idle状态的连接数不少于指定数量

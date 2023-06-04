@@ -1,9 +1,12 @@
 package main
 
-import "IM/router"
+import (
+	"IM/models"
+	"IM/router"
+)
 
 func main() {
 	e := router.Router()
 
-	e.Run(":8080")
+	e.Run(models.OptionsConfig.Server.Host + ":" + models.OptionsConfig.Server.Port)
 }
