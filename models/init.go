@@ -59,19 +59,21 @@ func InitConfig() *Options {
 		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
 			// 配置文件未找到错误
 			fmt.Println("配置文件未找到: ", err)
+			return nil
 		} else {
 			fmt.Println("读取配置文件数据失败: ", err)
+			return nil
 		}
 	} else {
 		//绑定数据到结构体
 		if err := viper.Unmarshal(&optionsConfig); err != nil {
 			fmt.Println("绑定数据失败: ", err)
+			return nil
 		} else {
 			fmt.Println("读取配置文件成功")
 			return optionsConfig
 		}
 	}
-	return optionsConfig
 }
 
 // InitMongo 初始化数据库
@@ -101,11 +103,9 @@ func InitRedis() *redis.Client {
 	//判断连接是否成功
 	if _, err := Red.Ping(context.Background()).Result(); err != nil {
 		fmt.Println("连接Redis失败", err)
+		return nil
 	} else {
-
 		fmt.Println("连接Redis成功")
 		return Red
 	}
-	return Red
-
 }

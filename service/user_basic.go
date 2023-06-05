@@ -278,7 +278,7 @@ func UserAdd(c *gin.Context) {
 		log.Printf("[DB ERROR]:%v\n", err)
 		c.JSON(http.StatusOK, gin.H{
 			"code": -1,
-			"msg":  "数据查询异常",
+			"msg":  "没有当前用户",
 		})
 		return
 	}
